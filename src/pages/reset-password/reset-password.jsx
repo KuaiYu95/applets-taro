@@ -1,8 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import './index.less'
+import './reset-password.less'
 
-export default class Index extends Component {
+export default class ResetPassword extends Component {
 
   config = {
     navigationBarTitleText: '首页'
@@ -20,7 +20,7 @@ export default class Index extends Component {
 
   render () {
     return (
-      <View className='index'>
+      <View className='reset-password'>
         <Text>Hello world!</Text>
       </View>
     )
