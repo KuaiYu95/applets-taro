@@ -7,6 +7,7 @@ import Homepage from './pages/homepage/homepage'
 // import Setting from './pages/setting/setting'
 // import ResetPassword from './pages/reset-password/reset-password'
 
+import { set as setGlobalData } from './global_data'
 import './app.less'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -20,12 +21,12 @@ class App extends Component {
   config = {
     pages: [
       'pages/homepage/homepage',
+      'pages/home/home',
       'pages/reset-password/reset-password',
       'pages/setting/setting',
       'pages/my/my',
-      'pages/login-account/login-account',
+      'pages/login/login',
       'pages/messages/messages',
-      'pages/home/home'
     ],
     window: {
       backgroundTextStyle: 'dark',
@@ -59,13 +60,15 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {}
+  globalData = {
+    corpId: ''
+  }
 
-  componentDidShow () {}
-
-  componentDidHide () {}
-
-  componentDidCatchError () {}
+  componentWillMount() {
+    let {corpId} = this.$router.params.query
+    this.globalData.corpId = corpId
+    setGlobalData('corpId', corpId)
+  }
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
